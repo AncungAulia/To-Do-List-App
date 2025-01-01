@@ -131,14 +131,14 @@ const Profile = ({ theme, toggleTheme }) => {
   }
 
   return (
-    <div className="w-full max-h-screen bg-gray-50 dark:bg-backgroundDark">
+    <div className="w-full max-h-screen overflow-auto bg-gray-50 dark:bg-backgroundDark">
       <NavbarDashboard theme={theme} toggleTheme={toggleTheme} />
 
       <div className="max-w-2xl mx-auto p-6 overflow-y-auto">
         <h1 className="text-2xl font-semibold mb-8">Profile Settings</h1>
 
         {/* Informasi User (Profilnya) */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-8 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 mb-8 shadow-md">
           <h2 className="text-xl font-medium mb-6 flex items-center gap-2">
             <User size={20} />
             Profile Information
@@ -208,7 +208,7 @@ const Profile = ({ theme, toggleTheme }) => {
         </div>
 
         {/* Bagian Ubah Password */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
           <h2 className="text-xl font-medium mb-6 flex items-center gap-2">
             <Lock size={20} />
             Change Password
