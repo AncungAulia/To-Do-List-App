@@ -43,7 +43,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
   const fetchTodos = async () => {
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await axios.get("http://localhost:5000/todos", {
+      const response = await axios.get("https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/todos", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -96,7 +96,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
     try {
       const token = localStorage.getItem("auth_token");
       await axios.put(
-        `http://localhost:5000/todos/${editingTodo.todo_id}`,
+        `https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/todos/${editingTodo.todo_id}`,
         editingTodo,
         {
           headers: {
@@ -115,7 +115,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
   const handleDelete = async (todoId) => {
     try {
       const token = localStorage.getItem("auth_token");
-      await axios.delete(`http://localhost:5000/todos/${todoId}`, {
+      await axios.delete(`https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/todos/${todoId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -43,7 +43,6 @@ const Registration = () => {
       ...prev,
       [name]: value,
     }));
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -66,11 +65,10 @@ const Registration = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/register",
+        "https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/register",
         formData
       );
 
-      // Registration successful, navigate to login page with email pre-filled
       navigate("/login", {
         state: {
           email: formData.email,

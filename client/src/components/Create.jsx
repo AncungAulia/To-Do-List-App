@@ -10,9 +10,9 @@ const Create = ({ theme, toggleTheme }) => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  useEffect(()=>{
-    document.title = "Create"
-  }, [])
+  useEffect(() => {
+    document.title = "Create";
+  }, []);
 
   const [formData, setFormData] = useState({
     title: "",
@@ -76,7 +76,7 @@ const Create = ({ theme, toggleTheme }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/todos",
+        "https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/todos",
         formattedData,
         {
           headers: {

@@ -37,7 +37,7 @@ const Profile = ({ theme, toggleTheme }) => {
         return;
       }
 
-      const response = await axios.get("http://localhost:5000/user/profile", {
+      const response = await axios.get("https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
 
