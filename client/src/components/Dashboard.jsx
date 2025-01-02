@@ -58,6 +58,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
   };
 
   useEffect(() => {
+    document.title = "Dashboard"
     fetchTodos();
   }, []);
 

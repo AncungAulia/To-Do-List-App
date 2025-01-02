@@ -25,6 +25,7 @@ const Profile = ({ theme, toggleTheme }) => {
   });
 
   useEffect(() => {
+    document.title = "Profile"
     fetchUserProfile();
   }, []);
 

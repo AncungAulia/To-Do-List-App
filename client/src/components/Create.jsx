@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavbarDashboard from "./NavbarDashboard";
 import { Calendar, Clock, AlertCircle, ArrowLeft } from "lucide-react";
 import axios from "axios";
@@ -9,6 +9,10 @@ const Create = ({ theme, toggleTheme }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  useEffect(()=>{
+    document.title = "Create"
+  }, [])
 
   const [formData, setFormData] = useState({
     title: "",

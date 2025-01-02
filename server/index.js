@@ -7,7 +7,10 @@ const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://to-do-list-gold-six-63.vercel.app"],
+  credentials: true
+}));
 app.use(express.json());
 
 const verifyToken = (req, res, next) => {
@@ -333,6 +336,6 @@ app.put("/user/update-password", verifyToken, async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
+app.listen(5000, '0.0.0.0' , () => {
   console.log("Server is running on port 5000");
 });

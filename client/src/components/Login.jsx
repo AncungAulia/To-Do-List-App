@@ -23,6 +23,7 @@ const Login = () => {
 
   // Check for stored credentials when component mounts
   useEffect(() => {
+    document.title = "Login"
     const storedEmail = localStorage.getItem("remembered_email");
     const storedRememberMe = localStorage.getItem("remember_me") === "true";
     
