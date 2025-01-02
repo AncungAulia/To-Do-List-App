@@ -13,6 +13,7 @@ const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const baseURL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     document.title = "Sign Up";
   }, []);
@@ -64,10 +65,7 @@ const Registration = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post(
-        "https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/register",
-        formData
-      );
+      const response = await axios.post(`${baseURL}/register`, formData);
 
       navigate("/login", {
         state: {

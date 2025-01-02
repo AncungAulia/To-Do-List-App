@@ -11,7 +11,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import {
-  CalendarDays,
   CheckCircle2,
   Circle,
   AlertCircle,
@@ -39,11 +38,11 @@ const Dashboard = ({ theme, toggleTheme }) => {
       low: 0,
     },
   });
-
+  const baseURL = import.meta.env.VITE_API_URL;
   const fetchTodos = async () => {
     try {
       const token = localStorage.getItem("auth_token");
-      const response = await axios.get("https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/todos", {
+      const response = await axios.get(`${baseURL}/todos`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -58,7 +57,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
   };
 
   useEffect(() => {
-    document.title = "Dashboard"
+    document.title = "Dashboard";
     fetchTodos();
   }, []);
 
@@ -95,15 +94,11 @@ const Dashboard = ({ theme, toggleTheme }) => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("auth_token");
-      await axios.put(
-        `https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/todos/${editingTodo.todo_id}`,
-        editingTodo,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      await axios.put(`${baseURL}/todos/${editingTodo.todo_id}`, editingTodo, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setShowEditModal(false);
       setEditingTodo(null);
       fetchTodos();
@@ -115,7 +110,7 @@ const Dashboard = ({ theme, toggleTheme }) => {
   const handleDelete = async (todoId) => {
     try {
       const token = localStorage.getItem("auth_token");
-      await axios.delete(`https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/todos/${todoId}`, {
+      await axios.delete(`${baseURL}/todos/${todoId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

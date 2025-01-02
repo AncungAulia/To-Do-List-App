@@ -24,6 +24,8 @@ const Profile = ({ theme, toggleTheme }) => {
     confirmPassword: "",
   });
 
+  const baseURL = import.meta.env.VITE_API_URL
+
   useEffect(() => {
     document.title = "Profile"
     fetchUserProfile();
@@ -37,7 +39,7 @@ const Profile = ({ theme, toggleTheme }) => {
         return;
       }
 
-      const response = await axios.get("https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/user/profile", {
+      const response = await axios.get(`${baseURL}/user/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -67,7 +69,7 @@ const Profile = ({ theme, toggleTheme }) => {
 
       const token = localStorage.getItem("auth_token");
       const response = await axios.put(
-        "http://localhost:5000/user/update-name",
+        `${baseURL}/user/update-name`,
         { name: newName },
         { headers: { Authorization: `Bearer ${token}` } }
       );

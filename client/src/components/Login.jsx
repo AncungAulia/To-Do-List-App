@@ -21,6 +21,7 @@ const Login = () => {
       : ""
   );
 
+  const baseURL = import.meta.env.VITE_API_URL
   // Check for stored credentials when component mounts
   useEffect(() => {
     document.title = "Login"
@@ -97,7 +98,7 @@ const Login = () => {
 
     setLoading(true);
     try {
-      const response = await axios.post("https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/login", formData);
+      const response = await axios.post(`${baseURL}/login`, formData);
 
       const { token, expiresIn } = response.data;
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavbarDashboard from "./NavbarDashboard";
-import { Calendar, Clock, AlertCircle, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, AlertCircle } from "lucide-react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ const Create = ({ theme, toggleTheme }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const baseURL = import.meta.env.VITE_API_URL
 
   useEffect(() => {
     document.title = "Create";
@@ -76,7 +77,7 @@ const Create = ({ theme, toggleTheme }) => {
       };
 
       const response = await axios.post(
-        "https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/todos",
+        `${baseURL}/todos`,
         formattedData,
         {
           headers: {
