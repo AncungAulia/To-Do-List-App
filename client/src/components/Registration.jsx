@@ -65,7 +65,7 @@ const Registration = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://to-do-list-backend-phsebabqu-ancungaulias-projects.vercel.app/register",
+        "https://to-do-list-backend-gf1l3d8bo-ancungaulias-projects.vercel.app/register",
         formData
       );
 

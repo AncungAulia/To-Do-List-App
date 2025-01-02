@@ -10,7 +10,6 @@ require("dotenv").config();
 app.use(
   cors({
     origin: ["https://to-do-list-gold-six-63.vercel.app"],
-    credentials: true,
   })
 );
 app.use(express.json());
